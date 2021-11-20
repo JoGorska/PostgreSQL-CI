@@ -8,10 +8,18 @@ db = create_engine("postgresql:///chinook")
 
 meta = MetaData(db)
 
+
+# raw SQL command to see the structure of the "Artist" table
+# list of column headers
+# SELECT * FROM "Artist" WHERE false;
+
 # create variable for "Artist" table
+
 artist_table = Table(
     "Artist", meta,
+    # this is the primary key column
     Column("ArtistId", Integer, primary_key=True),
+    # this is "Name" column
     Column("Name", String)
 )
 
@@ -39,9 +47,8 @@ track_table = Table(
 
 # making the connection
 with db.connect() as connection:
+    # all queries go here
 
-    # list of column headers
-    # SELECT * FROM "Artist" WHERE false;
 
     # Query 1 - select all records from the "Artist" table
 
@@ -62,6 +69,7 @@ with db.connect() as connection:
     # Query 6 - select all tracks where the composer is 'Queen' from the "Track" table
     select_query = track_table.select().where(track_table.c.Composer == "Queen")
 
+    # perform execution of the query
     results = connection.execute(select_query)
     for result in results:
         print(result)
