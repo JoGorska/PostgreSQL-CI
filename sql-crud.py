@@ -144,10 +144,10 @@ gal_anonim = Programmer(
 
 
 # delete multiple/all records
-programmers = session.query(Programmer)
-for programmer in programmers:
-    session.delete(programmer)
-    session.commit()
+# programmers = session.query(Programmer)
+# for programmer in programmers:
+#     session.delete(programmer)
+#     session.commit()
 
 
 # query the database to find all Programmers
