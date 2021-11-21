@@ -83,7 +83,7 @@ tim_berners_lee = Programmer(
     famous_for="World Wide Web"
 )
 
-gal_anonim = Programmer (
+gal_anonim = Programmer(
     first_name="Gal",
     last_name="Anonim",
     gender="M",
@@ -103,9 +103,15 @@ gal_anonim = Programmer (
 # session.add(tim_berners_lee)
 # session.add(gal_anonim)
 
+
+
+
+# updating a single record
+programmer = session.query(Programmer).filter_by(id=10).first()
+programmer.famous_for = "World President"
+
 # commit our session to the database
 session.commit()
-
 
 # query the database to find all Programmers
 programmers = session.query(Programmer)
