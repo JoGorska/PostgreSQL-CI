@@ -82,16 +82,29 @@ tim_berners_lee = Programmer(
     nationality="British",
     famous_for="World Wide Web"
 )
+
+gal_anonim = Programmer (
+    first_name="Gal",
+    last_name="Anonim",
+    gender="M",
+    nationality="Polish",
+    famous_for="History"
+)
 # add each instance of our programmers to our session
+
+# they need to be commented out otherwise running the program
+#  adds another copy of the same person
+
 # session.add(ada_lovelace)
 # session.add(alan_turing)
 # session.add(grace_hopper)
 # session.add(margaret_hamilton)
 # session.add(bill_gates)
 # session.add(tim_berners_lee)
+# session.add(gal_anonim)
 
 # commit our session to the database
-# session.commit()
+session.commit()
 
 
 # query the database to find all Programmers
